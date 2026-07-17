@@ -9,6 +9,6 @@ class Solution {
         String s2 = new String(s1);
         String t2 = new String(t1);
 
-        if(s2.equals(t2));
+        return s2.equals(t2);
     }
 }
