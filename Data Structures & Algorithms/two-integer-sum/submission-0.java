@@ -1,13 +1,16 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int n = nums.length;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] == target) {
-                    return new int[] { i, j };
-                }
-            }
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int i = 0;
+        for(int num : nums){
+            int complementOfNum = target - num;
+
+            if(hm.containsKey(complementOfNum))
+                return new int[] {hm.get(complementOfNum), i};
+
+            hm.put(num, i);
+            i++;
         }
-        throw new IllegalArgumentException("No two sum solution");
+        return new int[] {};
     }
 }
